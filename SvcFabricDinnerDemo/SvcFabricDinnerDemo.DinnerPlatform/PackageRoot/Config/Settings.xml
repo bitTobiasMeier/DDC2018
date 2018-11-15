@@ -6,4 +6,10 @@
     <Parameter Name="MyParameter" Value="Value1" />
   </Section>
   -->
+
+  <Section Name="DinnerPlatformSection">
+    <Parameter Name="CertificateSubject" Value="localhost" />
+  </Section>
+
+
 </Settings>
