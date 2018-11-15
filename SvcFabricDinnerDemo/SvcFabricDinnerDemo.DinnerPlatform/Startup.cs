@@ -41,6 +41,10 @@ namespace SvcFabricDinnerDemo.DinnerPlatform
             }
 
             app.UseHttpsRedirection();
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod().AllowCredentials());
+
             app.UseMvc();
         }
     }
