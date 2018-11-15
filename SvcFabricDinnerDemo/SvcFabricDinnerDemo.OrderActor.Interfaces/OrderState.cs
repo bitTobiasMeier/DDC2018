@@ -1,0 +1,17 @@
+﻿using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
+using Microsoft.ServiceFabric.Services.Remoting;
+
+namespace SvcFabricDinnerDemo.OrderActor.Interfaces
+{
+    public enum OrderState
+    {
+        None = 0,
+        Ordered = 1,
+        InKitchenQueue = 2,
+        Cooking = 3,
+        Cooked = 4,
+        Served = 5,
+        Payed = 6
+    }
+
+}

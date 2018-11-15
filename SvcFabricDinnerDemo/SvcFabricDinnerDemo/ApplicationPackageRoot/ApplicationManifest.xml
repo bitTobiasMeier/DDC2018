@@ -9,10 +9,16 @@
     <Parameter Name="SvcFabricDinnerDemo.RestaurantService_TargetReplicaSetSize" DefaultValue="3" />
     <Parameter Name="SvcFabricDinnerDemo.DinnerPlatform_ASPNETCORE_ENVIRONMENT" DefaultValue="" />
     <Parameter Name="SvcFabricDinnerDemo.DinnerPlatform_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="OrderActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="OrderActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="OrderActorService_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="SvcFabricDinnerDemo.OrderActorPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="SvcFabricDinnerDemo.DinnerMenuServicePkg" ServiceManifestVersion="1.0.0" />
     <ConfigOverrides />
@@ -48,6 +54,11 @@
       <StatelessService ServiceTypeName="SvcFabricDinnerDemo.DinnerPlatformType" InstanceCount="[SvcFabricDinnerDemo.DinnerPlatform_InstanceCount]">
         <SingletonPartition />
       </StatelessService>
+    </Service>
+    <Service Name="OrderActorService" GeneratedIdRef="6b58fbb6-858e-488e-aab3-31e28ed34061|Persisted">
+      <StatefulService ServiceTypeName="OrderActorServiceType" TargetReplicaSetSize="[OrderActorService_TargetReplicaSetSize]" MinReplicaSetSize="[OrderActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[OrderActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
     </Service>
   </DefaultServices>
 </ApplicationManifest>
