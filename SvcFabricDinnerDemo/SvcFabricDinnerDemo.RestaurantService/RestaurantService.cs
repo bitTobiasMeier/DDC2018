@@ -18,7 +18,7 @@ namespace SvcFabricDinnerDemo.RestaurantService
     /// <summary>
     /// An instance of this class is created for each service replica by the Service Fabric runtime.
     /// </summary>
-    internal sealed class RestaurantService : StatefulService, IService, IRestaurantService, IRestaurantAdminService
+    public sealed class RestaurantService : StatefulService, IService, IRestaurantService, IRestaurantAdminService
     {
         private const string RestaurantDictionaryName = "RestaurantDictionaryName ";
         private const string RestaurantTablesDictionaryName = "RestaurantTablesDictionaryName ";
@@ -27,6 +27,11 @@ namespace SvcFabricDinnerDemo.RestaurantService
         public RestaurantService(StatefulServiceContext context)
             : base(context)
         { }
+
+        public RestaurantService(StatefulServiceContext serviceContext, IReliableStateManagerReplica reliableStateManagerReplica)
+            : base(serviceContext, reliableStateManagerReplica)
+        {
+        }
 
         async Task<Restaurant> IRestaurantAdminService.CreateRestaurant(Restaurant restaurant)
         {
