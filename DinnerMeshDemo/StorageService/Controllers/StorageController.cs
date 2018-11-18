@@ -30,7 +30,7 @@ namespace StorageService.Controllers
                 RestaurantId = restaurantId,
                 Food = food
             };
-            using (var response = client.PostAsJsonAsync("http://deliveryservice.dinnermeshdemo:20004/api/Delivery", order).GetAwaiter().GetResult())
+            using (var response = client.PostAsJsonAsync(Environment.GetEnvironmentVariable("DeliverService_URL"), order).GetAwaiter().GetResult())
             {
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
