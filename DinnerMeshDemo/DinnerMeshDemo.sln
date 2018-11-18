@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9B56FCB0-63B4-404F-8A09-42EF52B53347}") = "DinnerMeshDemo", "DinnerMeshDemo\DinnerMeshDemo.sfaproj", "{D9E78369-BD2B-4FE0-87C6-5810AADBF8EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StorageService", "StorageService\StorageService.csproj", "{AA0EF332-9E47-4A55-8F66-030CB6FC0A2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StorageService", "StorageService\StorageService.csproj", "{AA0EF332-9E47-4A55-8F66-030CB6FC0A2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryService", "DeliveryService\DeliveryService.csproj", "{6628B7E7-0E34-4CE2-99EB-800F11694A09}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AA0EF332-9E47-4A55-8F66-030CB6FC0A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA0EF332-9E47-4A55-8F66-030CB6FC0A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA0EF332-9E47-4A55-8F66-030CB6FC0A2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6628B7E7-0E34-4CE2-99EB-800F11694A09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6628B7E7-0E34-4CE2-99EB-800F11694A09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6628B7E7-0E34-4CE2-99EB-800F11694A09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6628B7E7-0E34-4CE2-99EB-800F11694A09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
