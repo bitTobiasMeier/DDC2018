@@ -767,6 +767,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _selected_table_selected_table_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./selected-table/selected-table.component */ "./src/app/selected-table/selected-table.component.ts");
 /* harmony import */ var _order_dish_order_dish_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./order-dish/order-dish.component */ "./src/app/order-dish/order-dish.component.ts");
 /* harmony import */ var _order_status_order_status_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./order-status/order-status.component */ "./src/app/order-status/order-status.component.ts");
+/* harmony import */ var _kitchen_kitchens_kitchens_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./kitchen/kitchens/kitchens.component */ "./src/app/kitchen/kitchens/kitchens.component.ts");
+/* harmony import */ var _kitchen_kitchen_kitchen_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./kitchen/kitchen/kitchen.component */ "./src/app/kitchen/kitchen/kitchen.component.ts");
+/* harmony import */ var _kitchen_select_kitchen_select_kitchen_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./kitchen/select-kitchen/select-kitchen.component */ "./src/app/kitchen/select-kitchen/select-kitchen.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -783,9 +786,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-/* import { KitchensComponent } from './kitchen/kitchens/kitchens.component';
-import { KitchenComponent } from './kitchen/kitchen/kitchen.component';
-import { SelectKitchenComponent } from './kitchen/select-kitchen/select-kitchen.component'; */
+
+
+
 var routes = [
     {
         path: '',
@@ -840,25 +843,24 @@ var routes = [
             }
         ]
     },
-    /*
     {
-      path: 'kitchens', component: KitchensComponent,
-      children: [
-        {
-        path: '',
-        redirectTo: 'select',
-        pathMatch: 'full'
-        },
-        {
-          path: 'select',
-          component: SelectKitchenComponent
-        },
-        {
-          path: ':restaurantId',
-          component: KitchenComponent
-        }
-      ]
-    },*/
+        path: 'kitchens', component: _kitchen_kitchens_kitchens_component__WEBPACK_IMPORTED_MODULE_10__["KitchensComponent"],
+        children: [
+            {
+                path: '',
+                redirectTo: 'select',
+                pathMatch: 'full'
+            },
+            {
+                path: 'select',
+                component: _kitchen_select_kitchen_select_kitchen_component__WEBPACK_IMPORTED_MODULE_12__["SelectKitchenComponent"]
+            },
+            {
+                path: ':restaurantId',
+                component: _kitchen_kitchen_kitchen_component__WEBPACK_IMPORTED_MODULE_11__["KitchenComponent"]
+            }
+        ]
+    },
     {
         path: 'admin', component: _admin_admin_component__WEBPACK_IMPORTED_MODULE_2__["AdminComponent"]
     }
@@ -969,6 +971,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _order_dish_order_dish_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./order-dish/order-dish.component */ "./src/app/order-dish/order-dish.component.ts");
 /* harmony import */ var _order_status_order_status_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./order-status/order-status.component */ "./src/app/order-status/order-status.component.ts");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _kitchen_kitchen_kitchen_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./kitchen/kitchen/kitchen.component */ "./src/app/kitchen/kitchen/kitchen.component.ts");
+/* harmony import */ var _kitchen_kitchens_kitchens_component__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./kitchen/kitchens/kitchens.component */ "./src/app/kitchen/kitchens/kitchens.component.ts");
+/* harmony import */ var _kitchen_select_kitchen_select_kitchen_component__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./kitchen/select-kitchen/select-kitchen.component */ "./src/app/kitchen/select-kitchen/select-kitchen.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -997,9 +1002,9 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
-/*import { KitchenComponent } from './kitchen/kitchen/kitchen.component';
-import { KitchensComponent } from './kitchen/kitchens/kitchens.component';
-import { SelectKitchenComponent } from './kitchen/select-kitchen/select-kitchen.component'; */
+
+
+
 var API_BASE_URL2 = 'http://localhost:8328';
 if (window != null && window.location != null) {
     var loc = window.location;
@@ -1034,6 +1039,9 @@ var AppModule = /** @class */ (function () {
                 _selected_table_selected_table_component__WEBPACK_IMPORTED_MODULE_18__["SelectedTableComponent"],
                 _order_dish_order_dish_component__WEBPACK_IMPORTED_MODULE_19__["OrderDishComponent"],
                 _order_status_order_status_component__WEBPACK_IMPORTED_MODULE_20__["OrderStatusComponent"],
+                _kitchen_kitchen_kitchen_component__WEBPACK_IMPORTED_MODULE_22__["KitchenComponent"],
+                _kitchen_kitchens_kitchens_component__WEBPACK_IMPORTED_MODULE_23__["KitchensComponent"],
+                _kitchen_select_kitchen_select_kitchen_component__WEBPACK_IMPORTED_MODULE_24__["SelectKitchenComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -1041,13 +1049,263 @@ var AppModule = /** @class */ (function () {
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_21__["HttpClientModule"],
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"]
             ],
-            providers: [_shared_Controllers_generated__WEBPACK_IMPORTED_MODULE_8__["AdminClient"], _shared_Controllers_generated__WEBPACK_IMPORTED_MODULE_8__["RestaurantAdminClient"], _shared_Controllers_generated__WEBPACK_IMPORTED_MODULE_8__["OrderClient"], _shared_Controllers_generated__WEBPACK_IMPORTED_MODULE_8__["RestaurantClient"],
+            providers: [_shared_Controllers_generated__WEBPACK_IMPORTED_MODULE_8__["AdminClient"], _shared_Controllers_generated__WEBPACK_IMPORTED_MODULE_8__["RestaurantAdminClient"], _shared_Controllers_generated__WEBPACK_IMPORTED_MODULE_8__["OrderClient"], _shared_Controllers_generated__WEBPACK_IMPORTED_MODULE_8__["RestaurantClient"], _shared_Controllers_generated__WEBPACK_IMPORTED_MODULE_8__["KitchenClient"],
                 { provide: _shared_Controllers_generated__WEBPACK_IMPORTED_MODULE_8__["API_BASE_URL"], useValue: API_BASE_URL2 }
             ],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/kitchen/kitchen/kitchen.component.html":
+/*!********************************************************!*\
+  !*** ./src/app/kitchen/kitchen/kitchen.component.html ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card-kitchen col-6\">\r\n<p><b>Offene Bestellungen:</b></p>\r\n<div *ngFor=\"let order of kitchenQueue\">\r\n  <div class=\"card-body\">\r\n    <h3 class=\"menue-title\">{{getDishname(order.dishId)}}</h3>    \r\n  </div>\r\n</div>\r\n</div>\r\n\r\n<div class=\"card-kitchen col-6\">\r\n<p><b> Folgende Gerichte werden gerade gekocht:</b></p>\r\n  <div *ngFor=\"let order of cookingQueue\">\r\n    <div class=\"card-body\">\r\n      <h3 class=\"menue-title\">{{getDishname(order.dishId)}}</h3>    \r\n    </div>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/kitchen/kitchen/kitchen.component.sass":
+/*!********************************************************!*\
+  !*** ./src/app/kitchen/kitchen/kitchen.component.sass ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/kitchen/kitchen/kitchen.component.ts":
+/*!******************************************************!*\
+  !*** ./src/app/kitchen/kitchen/kitchen.component.ts ***!
+  \******************************************************/
+/*! exports provided: KitchenComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KitchenComponent", function() { return KitchenComponent; });
+/* harmony import */ var _shared_Controllers_generated__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/Controllers.generated */ "./src/app/shared/Controllers.generated.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var rxjs_observable_IntervalObservable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/observable/IntervalObservable */ "./node_modules/rxjs-compat/_esm5/observable/IntervalObservable.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var KitchenComponent = /** @class */ (function () {
+    function KitchenComponent(route, kitchenClient, restaurantClient) {
+        this.route = route;
+        this.kitchenClient = kitchenClient;
+        this.restaurantClient = restaurantClient;
+        this.alive = true;
+    }
+    KitchenComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.kitchenQueue = [];
+        this.cookingQueue = [];
+        this.restaurantNr = this.route.snapshot.params['restaurantId'];
+        this.restaurantClient.getMenuCard(this.restaurantNr).subscribe(function (dishes) {
+            _this.dishMap = new Map();
+            dishes.forEach(function (dish) {
+                _this.dishMap.set(dish.id, dish);
+            });
+        });
+        this.kitchenClient.getKitchenQueue(this.restaurantNr).subscribe(function (kitchenOrders) {
+            _this.kitchenQueue = kitchenOrders;
+        });
+        this.kitchenClient.getKitchenCookingQueue(this.restaurantNr).subscribe(function (kitchenOrders) {
+            _this.cookingQueue = kitchenOrders;
+        });
+        var that = this;
+        rxjs_observable_IntervalObservable__WEBPACK_IMPORTED_MODULE_3__["IntervalObservable"].create(2000).subscribe(function (data) {
+            if (that.subWaiting != null) {
+                that.subWaiting.unsubscribe();
+            }
+            that.subWaiting = that.kitchenClient.getKitchenQueue(that.restaurantNr).subscribe(function (kitchenOrders) {
+                that.kitchenQueue = kitchenOrders;
+            });
+            if (that.subCooking != null) {
+                that.subCooking.unsubscribe();
+            }
+            that.subCooking = that.kitchenClient.getKitchenCookingQueue(that.restaurantNr).subscribe(function (kitchenOrders) {
+                that.cookingQueue = kitchenOrders;
+            });
+        });
+    };
+    KitchenComponent.prototype.getDishname = function (id) {
+        var found = this.dishMap.get(id);
+        if (found)
+            return found.name;
+        return id;
+    };
+    KitchenComponent.prototype.ngOnDestroy = function () {
+        this.alive = false;
+        this.subCooking.unsubscribe();
+        this.subWaiting.unsubscribe();
+    };
+    KitchenComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'dinner-kitchen',
+            template: __webpack_require__(/*! ./kitchen.component.html */ "./src/app/kitchen/kitchen/kitchen.component.html"),
+            styles: [__webpack_require__(/*! ./kitchen.component.sass */ "./src/app/kitchen/kitchen/kitchen.component.sass")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"], _shared_Controllers_generated__WEBPACK_IMPORTED_MODULE_0__["KitchenClient"], _shared_Controllers_generated__WEBPACK_IMPORTED_MODULE_0__["RestaurantAdminClient"]])
+    ], KitchenComponent);
+    return KitchenComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/kitchen/kitchens/kitchens.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/kitchen/kitchens/kitchens.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<router-outlet></router-outlet>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/kitchen/kitchens/kitchens.component.sass":
+/*!**********************************************************!*\
+  !*** ./src/app/kitchen/kitchens/kitchens.component.sass ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/kitchen/kitchens/kitchens.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/kitchen/kitchens/kitchens.component.ts ***!
+  \********************************************************/
+/*! exports provided: KitchensComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KitchensComponent", function() { return KitchensComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var KitchensComponent = /** @class */ (function () {
+    function KitchensComponent() {
+    }
+    KitchensComponent.prototype.ngOnInit = function () {
+    };
+    KitchensComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'dinner-kitchens',
+            template: __webpack_require__(/*! ./kitchens.component.html */ "./src/app/kitchen/kitchens/kitchens.component.html"),
+            styles: [__webpack_require__(/*! ./kitchens.component.sass */ "./src/app/kitchen/kitchens/kitchens.component.sass")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], KitchensComponent);
+    return KitchensComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/kitchen/select-kitchen/select-kitchen.component.html":
+/*!**********************************************************************!*\
+  !*** ./src/app/kitchen/select-kitchen/select-kitchen.component.html ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p><b>Bitte wählen Sie eine Küche aus.</b></p>\r\n\r\n<div class=\"card  mb-3\" style=\"max-width: 40rem;\" *ngFor=\"let restaurant of restaurants\">\r\n  <div class=\"card-body\">\r\n    <h3 class=\"card-title\">{{restaurant.name}}</h3>\r\n    <a class=\"btn btn-primary\" [routerLink]=\"['/kitchens/', restaurant.id]\" role=\"button\">Auswählen</a>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/kitchen/select-kitchen/select-kitchen.component.sass":
+/*!**********************************************************************!*\
+  !*** ./src/app/kitchen/select-kitchen/select-kitchen.component.sass ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/kitchen/select-kitchen/select-kitchen.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/kitchen/select-kitchen/select-kitchen.component.ts ***!
+  \********************************************************************/
+/*! exports provided: SelectKitchenComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectKitchenComponent", function() { return SelectKitchenComponent; });
+/* harmony import */ var _shared_Controllers_generated__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/Controllers.generated */ "./src/app/shared/Controllers.generated.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SelectKitchenComponent = /** @class */ (function () {
+    function SelectKitchenComponent(restaurantClient) {
+        this.restaurantClient = restaurantClient;
+    }
+    SelectKitchenComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.restaurantClient.get().subscribe(function (restaurants) {
+            _this.restaurants = restaurants;
+        }, function (error) {
+            console.log('Restaurants konnten nicht geladen werden: ' + error);
+        });
+    };
+    SelectKitchenComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'dinner-select-kitchen',
+            template: __webpack_require__(/*! ./select-kitchen.component.html */ "./src/app/kitchen/select-kitchen/select-kitchen.component.html"),
+            styles: [__webpack_require__(/*! ./select-kitchen.component.sass */ "./src/app/kitchen/select-kitchen/select-kitchen.component.sass")]
+        }),
+        __metadata("design:paramtypes", [_shared_Controllers_generated__WEBPACK_IMPORTED_MODULE_0__["AdminClient"]])
+    ], SelectKitchenComponent);
+    return SelectKitchenComponent;
 }());
 
 
@@ -1609,7 +1867,7 @@ var SelectedTableComponent = /** @class */ (function () {
 /*!*************************************************!*\
   !*** ./src/app/shared/Controllers.generated.ts ***!
   \*************************************************/
-/*! exports provided: API_BASE_URL, AdminClient, OrderClient, RestaurantAdminClient, RestaurantClient, Restaurant, Order, OrderState, TableOrder, Dish, RestaurantTable, SwaggerException */
+/*! exports provided: API_BASE_URL, AdminClient, OrderClient, RestaurantAdminClient, RestaurantClient, KitchenClient, Restaurant, Order, OrderState, TableOrder, Dish, RestaurantTable, KitchenOrder, SwaggerException */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1619,12 +1877,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderClient", function() { return OrderClient; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RestaurantAdminClient", function() { return RestaurantAdminClient; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RestaurantClient", function() { return RestaurantClient; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KitchenClient", function() { return KitchenClient; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Restaurant", function() { return Restaurant; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Order", function() { return Order; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderState", function() { return OrderState; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TableOrder", function() { return TableOrder; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Dish", function() { return Dish; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RestaurantTable", function() { return RestaurantTable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KitchenOrder", function() { return KitchenOrder; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SwaggerException", function() { return SwaggerException; });
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
@@ -2380,6 +2640,146 @@ var RestaurantClient = /** @class */ (function () {
     return RestaurantClient;
 }());
 
+var KitchenClient = /** @class */ (function () {
+    function KitchenClient(http, baseUrl) {
+        this.jsonParseReviver = undefined;
+        this.http = http;
+        this.baseUrl = baseUrl ? baseUrl : "";
+    }
+    KitchenClient.prototype.getKitchenQueue = function (restaurantId) {
+        var _this = this;
+        var url_ = this.baseUrl + "/api/Kitchen/{restaurantId}/KitchenQueue";
+        if (restaurantId === undefined || restaurantId === null)
+            throw new Error("The parameter 'restaurantId' must be defined.");
+        url_ = url_.replace("{restaurantId}", encodeURIComponent("" + restaurantId));
+        url_ = url_.replace(/[?&]$/, "");
+        var options_ = {
+            observe: "response",
+            responseType: "blob",
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                "Accept": "application/json"
+            })
+        };
+        return this.http.request("get", url_, options_).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["mergeMap"])(function (response_) {
+            return _this.processGetKitchenQueue(response_);
+        })).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["catchError"])(function (response_) {
+            if (response_ instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpResponseBase"]) {
+                try {
+                    return _this.processGetKitchenQueue(response_);
+                }
+                catch (e) {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["throwError"])(e);
+                }
+            }
+            else
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["throwError"])(response_);
+        }));
+    };
+    KitchenClient.prototype.processGetKitchenQueue = function (response) {
+        var _this = this;
+        var status = response.status;
+        var responseBlob = response instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpResponse"] ? response.body :
+            response.error instanceof Blob ? response.error : undefined;
+        var _headers = {};
+        if (response.headers) {
+            for (var _i = 0, _a = response.headers.keys(); _i < _a.length; _i++) {
+                var key = _a[_i];
+                _headers[key] = response.headers.get(key);
+            }
+        }
+        ;
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["mergeMap"])(function (_responseText) {
+                var result200 = null;
+                var resultData200 = _responseText === "" ? null : JSON.parse(_responseText, _this.jsonParseReviver);
+                if (resultData200 && resultData200.constructor === Array) {
+                    result200 = [];
+                    for (var _i = 0, resultData200_5 = resultData200; _i < resultData200_5.length; _i++) {
+                        var item = resultData200_5[_i];
+                        result200.push(KitchenOrder.fromJS(item));
+                    }
+                }
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(result200);
+            }));
+        }
+        else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["mergeMap"])(function (_responseText) {
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(null);
+    };
+    KitchenClient.prototype.getKitchenCookingQueue = function (restaurantId) {
+        var _this = this;
+        var url_ = this.baseUrl + "/api/Kitchen/{restaurantId}/KitchenCookingQueue";
+        if (restaurantId === undefined || restaurantId === null)
+            throw new Error("The parameter 'restaurantId' must be defined.");
+        url_ = url_.replace("{restaurantId}", encodeURIComponent("" + restaurantId));
+        url_ = url_.replace(/[?&]$/, "");
+        var options_ = {
+            observe: "response",
+            responseType: "blob",
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
+                "Accept": "application/json"
+            })
+        };
+        return this.http.request("get", url_, options_).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["mergeMap"])(function (response_) {
+            return _this.processGetKitchenCookingQueue(response_);
+        })).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["catchError"])(function (response_) {
+            if (response_ instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpResponseBase"]) {
+                try {
+                    return _this.processGetKitchenCookingQueue(response_);
+                }
+                catch (e) {
+                    return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["throwError"])(e);
+                }
+            }
+            else
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["throwError"])(response_);
+        }));
+    };
+    KitchenClient.prototype.processGetKitchenCookingQueue = function (response) {
+        var _this = this;
+        var status = response.status;
+        var responseBlob = response instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpResponse"] ? response.body :
+            response.error instanceof Blob ? response.error : undefined;
+        var _headers = {};
+        if (response.headers) {
+            for (var _i = 0, _a = response.headers.keys(); _i < _a.length; _i++) {
+                var key = _a[_i];
+                _headers[key] = response.headers.get(key);
+            }
+        }
+        ;
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["mergeMap"])(function (_responseText) {
+                var result200 = null;
+                var resultData200 = _responseText === "" ? null : JSON.parse(_responseText, _this.jsonParseReviver);
+                if (resultData200 && resultData200.constructor === Array) {
+                    result200 = [];
+                    for (var _i = 0, resultData200_6 = resultData200; _i < resultData200_6.length; _i++) {
+                        var item = resultData200_6[_i];
+                        result200.push(KitchenOrder.fromJS(item));
+                    }
+                }
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(result200);
+            }));
+        }
+        else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_0__["mergeMap"])(function (_responseText) {
+                return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(null);
+    };
+    KitchenClient = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])(),
+        __param(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Inject"])(_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"])), __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Optional"])()), __param(1, Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Inject"])(API_BASE_URL)),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], String])
+    ], KitchenClient);
+    return KitchenClient;
+}());
+
 var Restaurant = /** @class */ (function () {
     function Restaurant(data) {
         if (data) {
@@ -2562,6 +2962,36 @@ var RestaurantTable = /** @class */ (function () {
         return data;
     };
     return RestaurantTable;
+}());
+
+var KitchenOrder = /** @class */ (function () {
+    function KitchenOrder(data) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    this[property] = data[property];
+            }
+        }
+    }
+    KitchenOrder.prototype.init = function (data) {
+        if (data) {
+            this.orderId = data["orderId"];
+            this.dishId = data["dishId"];
+        }
+    };
+    KitchenOrder.fromJS = function (data) {
+        data = typeof data === 'object' ? data : {};
+        var result = new KitchenOrder();
+        result.init(data);
+        return result;
+    };
+    KitchenOrder.prototype.toJSON = function (data) {
+        data = typeof data === 'object' ? data : {};
+        data["orderId"] = this.orderId;
+        data["dishId"] = this.dishId;
+        return data;
+    };
+    return KitchenOrder;
 }());
 
 var SwaggerException = /** @class */ (function (_super) {

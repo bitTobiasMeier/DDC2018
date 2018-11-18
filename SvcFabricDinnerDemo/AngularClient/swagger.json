@@ -334,6 +334,66 @@
           }
         }
       }
+    },
+    "/api/Kitchen/{restaurantId}/KitchenQueue": {
+      "get": {
+        "tags": [
+          "Kitchen"
+        ],
+        "operationId": "Kitchen_GetKitchenQueue",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "restaurantId",
+            "in": "path",
+            "required": true,
+            "format": "guid",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/KitchenOrder"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Kitchen/{restaurantId}/KitchenCookingQueue": {
+      "get": {
+        "tags": [
+          "Kitchen"
+        ],
+        "operationId": "Kitchen_GetKitchenCookingQueue",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "restaurantId",
+            "in": "path",
+            "required": true,
+            "format": "guid",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/KitchenOrder"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -488,6 +548,24 @@
           "format": "int32"
         },
         "id": {
+          "type": "string",
+          "format": "guid"
+        }
+      }
+    },
+    "KitchenOrder": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "orderId",
+        "dishId"
+      ],
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "format": "guid"
+        },
+        "dishId": {
           "type": "string",
           "format": "guid"
         }

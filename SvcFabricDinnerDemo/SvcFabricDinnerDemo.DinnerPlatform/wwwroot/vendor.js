@@ -72874,6 +72874,48 @@ rxjs__WEBPACK_IMPORTED_MODULE_0__["Observable"].prototype.zipAll = _operator_zip
 
 /***/ }),
 
+/***/ "./node_modules/rxjs-compat/_esm5/observable/IntervalObservable.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/rxjs-compat/_esm5/observable/IntervalObservable.js ***!
+  \*************************************************************************/
+/*! exports provided: IntervalObservable */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IntervalObservable", function() { return IntervalObservable; });
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    }
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var IntervalObservable = (function (_super) {
+    __extends(IntervalObservable, _super);
+    function IntervalObservable() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    IntervalObservable.create = function (period, scheduler) {
+        if (period === void 0) { period = 0; }
+        if (scheduler === void 0) { scheduler = rxjs__WEBPACK_IMPORTED_MODULE_0__["asyncScheduler"]; }
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_0__["interval"])(period, scheduler);
+    };
+    return IntervalObservable;
+}(rxjs__WEBPACK_IMPORTED_MODULE_0__["Observable"]));
+
+//# sourceMappingURL=IntervalObservable.js.map
+
+/***/ }),
+
 /***/ "./node_modules/rxjs-compat/_esm5/operator/audit.js":
 /*!**********************************************************!*\
   !*** ./node_modules/rxjs-compat/_esm5/operator/audit.js ***!

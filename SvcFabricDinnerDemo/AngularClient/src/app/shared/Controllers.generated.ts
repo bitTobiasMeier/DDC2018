@@ -671,6 +671,133 @@ export class RestaurantClient implements IRestaurantClient {
     }
 }
 
+export interface IKitchenClient {
+    getKitchenQueue(restaurantId: string): Observable<KitchenOrder[] | null>;
+    getKitchenCookingQueue(restaurantId: string): Observable<KitchenOrder[] | null>;
+}
+
+@Injectable()
+export class KitchenClient implements IKitchenClient {
+    private http: HttpClient;
+    private baseUrl: string;
+    protected jsonParseReviver: ((key: string, value: any) => any) | undefined = undefined;
+
+    constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
+        this.http = http;
+        this.baseUrl = baseUrl ? baseUrl : "";
+    }
+
+    getKitchenQueue(restaurantId: string): Observable<KitchenOrder[] | null> {
+        let url_ = this.baseUrl + "/api/Kitchen/{restaurantId}/KitchenQueue";
+        if (restaurantId === undefined || restaurantId === null)
+            throw new Error("The parameter 'restaurantId' must be defined.");
+        url_ = url_.replace("{restaurantId}", encodeURIComponent("" + restaurantId)); 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetKitchenQueue(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetKitchenQueue(<any>response_);
+                } catch (e) {
+                    return <Observable<KitchenOrder[] | null>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<KitchenOrder[] | null>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGetKitchenQueue(response: HttpResponseBase): Observable<KitchenOrder[] | null> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            if (resultData200 && resultData200.constructor === Array) {
+                result200 = [];
+                for (let item of resultData200)
+                    result200.push(KitchenOrder.fromJS(item));
+            }
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<KitchenOrder[] | null>(<any>null);
+    }
+
+    getKitchenCookingQueue(restaurantId: string): Observable<KitchenOrder[] | null> {
+        let url_ = this.baseUrl + "/api/Kitchen/{restaurantId}/KitchenCookingQueue";
+        if (restaurantId === undefined || restaurantId === null)
+            throw new Error("The parameter 'restaurantId' must be defined.");
+        url_ = url_.replace("{restaurantId}", encodeURIComponent("" + restaurantId)); 
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetKitchenCookingQueue(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetKitchenCookingQueue(<any>response_);
+                } catch (e) {
+                    return <Observable<KitchenOrder[] | null>><any>_observableThrow(e);
+                }
+            } else
+                return <Observable<KitchenOrder[] | null>><any>_observableThrow(response_);
+        }));
+    }
+
+    protected processGetKitchenCookingQueue(response: HttpResponseBase): Observable<KitchenOrder[] | null> {
+        const status = response.status;
+        const responseBlob = 
+            response instanceof HttpResponse ? response.body : 
+            (<any>response).error instanceof Blob ? (<any>response).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }};
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            if (resultData200 && resultData200.constructor === Array) {
+                result200 = [];
+                for (let item of resultData200)
+                    result200.push(KitchenOrder.fromJS(item));
+            }
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap(_responseText => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf<KitchenOrder[] | null>(<any>null);
+    }
+}
+
 export class Restaurant implements IRestaurant {
     name?: string | undefined;
     id!: string;
@@ -927,6 +1054,46 @@ export class RestaurantTable implements IRestaurantTable {
 export interface IRestaurantTable {
     tablenr: number;
     id: string;
+}
+
+export class KitchenOrder implements IKitchenOrder {
+    orderId!: string;
+    dishId!: string;
+
+    constructor(data?: IKitchenOrder) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(data?: any) {
+        if (data) {
+            this.orderId = data["orderId"];
+            this.dishId = data["dishId"];
+        }
+    }
+
+    static fromJS(data: any): KitchenOrder {
+        data = typeof data === 'object' ? data : {};
+        let result = new KitchenOrder();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["orderId"] = this.orderId;
+        data["dishId"] = this.dishId;
+        return data; 
+    }
+}
+
+export interface IKitchenOrder {
+    orderId: string;
+    dishId: string;
 }
 
 export class SwaggerException extends Error {

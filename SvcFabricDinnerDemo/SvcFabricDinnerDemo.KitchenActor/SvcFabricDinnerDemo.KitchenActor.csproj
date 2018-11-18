@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SvcFabricDinnerDemo.KitchenActor.Interfaces\SvcFabricDinnerDemo.KitchenActor.Interfaces.csproj" />
-    <ProjectReference Include="..\SvcFabricDinnerDemo.OrderActor.Interfaces\SvcFabricDinnerDemo.OrderActor.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

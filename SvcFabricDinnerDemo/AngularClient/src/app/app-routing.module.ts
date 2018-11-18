@@ -8,9 +8,9 @@ import { SelectTableInRestaurantComponent } from './select-table-in-restaurant/s
 import { SelectedTableComponent } from './selected-table/selected-table.component';
 import { OrderDishComponent } from './order-dish/order-dish.component';
 import { OrderStatusComponent } from './order-status/order-status.component';
-/* import { KitchensComponent } from './kitchen/kitchens/kitchens.component';
+import { KitchensComponent } from './kitchen/kitchens/kitchens.component';
 import { KitchenComponent } from './kitchen/kitchen/kitchen.component';
-import { SelectKitchenComponent } from './kitchen/select-kitchen/select-kitchen.component'; */
+import { SelectKitchenComponent } from './kitchen/select-kitchen/select-kitchen.component'; 
 
 const routes: Routes = [
   {
@@ -66,7 +66,6 @@ const routes: Routes = [
       }
     ]
   },
-  /*
   {
     path: 'kitchens', component: KitchensComponent,
     children: [
@@ -84,7 +83,7 @@ const routes: Routes = [
         component: KitchenComponent
       }
     ]
-  },*/
+  },
   {
     path: 'admin', component: AdminComponent
   }

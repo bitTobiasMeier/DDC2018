@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { AdminRestaurantComponent } from './admin-restaurant/admin-restaurant.component';
 import { AdminComponent } from './admin/admin.component';
 import { AddRestaurantComponent } from './Admin/add-restaurant/add-restaurant.component';
-import { API_BASE_URL, RestaurantAdminClient, AdminClient, OrderClient, RestaurantClient /*,KitchenClient*/ } from './shared/Controllers.generated';
+import { API_BASE_URL, RestaurantAdminClient, AdminClient, OrderClient, RestaurantClient ,KitchenClient } from './shared/Controllers.generated';
 import { RestaurantTablesComponent } from './admin/restaurant-tables/restaurant-tables.component';
 import { AddRestaurantTableComponent } from './admin/add-restaurant-table/add-restaurant-table.component';
 import { RestaurantDetailComponent } from './admin/restaurant-detail/restaurant-detail.component';
@@ -22,9 +22,9 @@ import { SelectedTableComponent } from './selected-table/selected-table.componen
 import { OrderDishComponent } from './order-dish/order-dish.component';
 import { OrderStatusComponent } from './order-status/order-status.component';
 import { HttpClientModule } from '@angular/common/http';
-/*import { KitchenComponent } from './kitchen/kitchen/kitchen.component';
+import { KitchenComponent } from './kitchen/kitchen/kitchen.component';
 import { KitchensComponent } from './kitchen/kitchens/kitchens.component';
-import { SelectKitchenComponent } from './kitchen/select-kitchen/select-kitchen.component'; */
+import { SelectKitchenComponent } from './kitchen/select-kitchen/select-kitchen.component'; 
 
 
 
@@ -65,9 +65,9 @@ if (window != null && window.location != null) {
     SelectedTableComponent,
     OrderDishComponent,
     OrderStatusComponent,
-    /* KitchenComponent,
+     KitchenComponent,
     KitchensComponent,
-    SelectKitchenComponent*/
+    SelectKitchenComponent
 
   ],
   imports: [
@@ -76,7 +76,7 @@ if (window != null && window.location != null) {
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [AdminClient, RestaurantAdminClient, OrderClient, RestaurantClient, // KitchenClient,
+  providers: [AdminClient, RestaurantAdminClient, OrderClient, RestaurantClient,  KitchenClient,
     {provide: API_BASE_URL, useValue: API_BASE_URL2}
    ],
   bootstrap: [AppComponent]

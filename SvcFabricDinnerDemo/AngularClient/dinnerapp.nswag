@@ -7,7 +7,8 @@
         "SvcFabricDinnerDemo.DinnerPlatform.Controllers.AdminController",
         "SvcFabricDinnerDemo.DinnerPlatform.Controllers.OrderController",
         "SvcFabricDinnerDemo.DinnerPlatform.Controllers.RestaurantAdminController",
-        "SvcFabricDinnerDemo.DinnerPlatform.Controllers.RestaurantController"
+        "SvcFabricDinnerDemo.DinnerPlatform.Controllers.RestaurantController",
+        "SvcFabricDinnerDemo.DinnerPlatform.Controllers.KitchenController"
       ],
       "isAspNetCore": true,
       "resolveJsonOptions": false,
