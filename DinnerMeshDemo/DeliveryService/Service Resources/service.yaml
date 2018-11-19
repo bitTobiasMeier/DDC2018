@@ -26,3 +26,5 @@ application:
           replicaCount: 1
           networkRefs:
             - name: DinnerMeshDemoNetwork
+          volumeRefs:
+            - name: dinnerVolume

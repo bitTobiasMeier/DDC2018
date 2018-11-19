@@ -25,6 +25,7 @@ namespace DeliveryService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddSingleton<AzureStorageVolumeUtility>(CreateAzureStorageVolumeUtility());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,10 +33,15 @@ namespace DeliveryService
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage();               
             }
 
             app.UseMvc();
+        }
+
+        private static AzureStorageVolumeUtility CreateAzureStorageVolumeUtility()
+        {
+            return new AzureStorageVolumeUtility();
         }
     }
 }
