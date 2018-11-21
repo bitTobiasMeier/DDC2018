@@ -5,6 +5,6 @@
     description: Azure Files storage volume for dinner App.
     provider: SFAzureFile
     azureFileParameters: 
-        shareName: "[parameters('azurefile-shareName')]"
-        accountName: "[parameters('azurefile-accountName')]"
-        accountKey: "[parameters('azurefile-accountKey')]"
+        shareName: "[parameters('shareName')]"
+        accountName: "[parameters('accountName')]"
+        accountKey: "[parameters('accountKey')]"

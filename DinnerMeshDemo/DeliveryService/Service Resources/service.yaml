@@ -19,6 +19,9 @@ application:
                   value: http://+:20004
 #                - name: ApplicationInsights:InstrumentationKey
 #                  value: "<Place AppInsights key here, or reference it via a secret>"
+              volumeRefs:
+                - name: dinnerVolume
+                  destinnationPath: C:\app\data
               resources:
                 requests:
                   cpu: 0.5
@@ -26,5 +29,4 @@ application:
           replicaCount: 1
           networkRefs:
             - name: DinnerMeshDemoNetwork
-          volumeRefs:
-            - name: dinnerVolume
+          
