@@ -1,0 +1,18 @@
+## Visual Studio SFApp Publish Profile ##
+vsSFAppPublishProfile:
+  schemaVersion: 1.0.0-preview1
+resourceGroupName: bridgingit123
+subscription:
+  id: d9d4322a-f0ba-44d5-8831-e1c9ecf26538
+  name: bIT Cloud Essentials
+  tenant: &o0
+    id: 947f6eac-73db-42d0-b9b3-768a8db01bbe
+    uniqueId: b4613ab5-4109-4fdc-a6a8-432184b97b49
+location:
+  name: westeurope
+  displayName: West Europe
+containerRegistry:
+  serverName: dinnermeshdemoacr.azurecr.io
+  userName: DinnerMeshDemoacr
+  resourceId: /subscriptions/d9d4322a-f0ba-44d5-8831-e1c9ecf26538/resourceGroups/ddc2018sf01/providers/Microsoft.ContainerRegistry/registries/DinnerMeshDemoacr
+  tenant: *o0

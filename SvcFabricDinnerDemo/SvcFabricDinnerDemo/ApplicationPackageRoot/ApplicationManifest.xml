@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="SvcFabricDinnerDemoType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Parameters>
+    <Parameter Name="SvcFabricDinnerDemo.DinnerMenuService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="SvcFabricDinnerDemo.DinnerMenuService_PartitionCount" DefaultValue="3" />
+    <Parameter Name="SvcFabricDinnerDemo.DinnerMenuService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="SvcFabricDinnerDemo.RestaurantService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="SvcFabricDinnerDemo.RestaurantService_PartitionCount" DefaultValue="1" />
+    <Parameter Name="SvcFabricDinnerDemo.RestaurantService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="SvcFabricDinnerDemo.DinnerPlatform_ASPNETCORE_ENVIRONMENT" DefaultValue="" />
+    <Parameter Name="SvcFabricDinnerDemo.DinnerPlatform_InstanceCount" DefaultValue="-1" />
+    <Parameter Name="OrderActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="OrderActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="OrderActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="TableActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="TableActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="TableActorService_TargetReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="CertificateSubject" DefaultValue="e3be847c40cb2ad5fa59469897c559c879cd795a" />
+    <Parameter Name="KitchenActorService_PartitionCount" DefaultValue="10" />
+    <Parameter Name="KitchenActorService_MinReplicaSetSize" DefaultValue="3" />
+    <Parameter Name="KitchenActorService_TargetReplicaSetSize" DefaultValue="3" />
+  </Parameters>
+  <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
+       should match the Name and Version attributes of the ServiceManifest element defined in the 
+       ServiceManifest.xml file. -->
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="SvcFabricDinnerDemo.KitchenActorPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="SvcFabricDinnerDemo.TableActorPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="SvcFabricDinnerDemo.OrderActorPkg" ServiceManifestVersion="1.0.0" />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="SvcFabricDinnerDemo.DinnerMenuServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="SvcFabricDinnerDemo.RestaurantServicePkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+  </ServiceManifestImport>
+  <ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="SvcFabricDinnerDemo.DinnerPlatformPkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <EnvironmentOverrides CodePackageRef="code">
+      <EnvironmentVariable Name="ASPNETCORE_ENVIRONMENT" Value="[SvcFabricDinnerDemo.DinnerPlatform_ASPNETCORE_ENVIRONMENT]" />
+    </EnvironmentOverrides>
+  </ServiceManifestImport>
+  <DefaultServices>
+    <!-- The section below creates instances of service types, when an instance of this 
+         application type is created. You can also create one or more instances of service type using the 
+         ServiceFabric PowerShell module.
+         
+         The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
+    <Service Name="SvcFabricDinnerDemo.DinnerMenuService" ServicePackageActivationMode="ExclusiveProcess">
+      <StatefulService ServiceTypeName="SvcFabricDinnerDemo.DinnerMenuServiceType" TargetReplicaSetSize="[SvcFabricDinnerDemo.DinnerMenuService_TargetReplicaSetSize]" MinReplicaSetSize="[SvcFabricDinnerDemo.DinnerMenuService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[SvcFabricDinnerDemo.DinnerMenuService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="SvcFabricDinnerDemo.RestaurantService" ServicePackageActivationMode="ExclusiveProcess">
+      <StatefulService ServiceTypeName="SvcFabricDinnerDemo.RestaurantServiceType" TargetReplicaSetSize="[SvcFabricDinnerDemo.RestaurantService_TargetReplicaSetSize]" MinReplicaSetSize="[SvcFabricDinnerDemo.RestaurantService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[SvcFabricDinnerDemo.RestaurantService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="SvcFabricDinnerDemo.DinnerPlatform" ServicePackageActivationMode="ExclusiveProcess">
+      <StatelessService ServiceTypeName="SvcFabricDinnerDemo.DinnerPlatformType" InstanceCount="[SvcFabricDinnerDemo.DinnerPlatform_InstanceCount]">
+        <SingletonPartition />
+      </StatelessService>
+    </Service>
+    <Service Name="OrderActorService" GeneratedIdRef="6b58fbb6-858e-488e-aab3-31e28ed34061|Persisted">
+      <StatefulService ServiceTypeName="OrderActorServiceType" TargetReplicaSetSize="[OrderActorService_TargetReplicaSetSize]" MinReplicaSetSize="[OrderActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[OrderActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="TableActorService" GeneratedIdRef="4c747b99-d005-4039-8c22-9193f29b9a97|Persisted">
+      <StatefulService ServiceTypeName="TableActorServiceType" TargetReplicaSetSize="[TableActorService_TargetReplicaSetSize]" MinReplicaSetSize="[TableActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[TableActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+    <Service Name="KitchenActorService" GeneratedIdRef="7967832a-b5c4-424a-a399-dd442d021398|Persisted">
+      <StatefulService ServiceTypeName="KitchenActorServiceType" TargetReplicaSetSize="[KitchenActorService_TargetReplicaSetSize]" MinReplicaSetSize="[KitchenActorService_MinReplicaSetSize]">
+        <UniformInt64Partition PartitionCount="[KitchenActorService_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
+      </StatefulService>
+    </Service>
+  </DefaultServices>
+</ApplicationManifest>
