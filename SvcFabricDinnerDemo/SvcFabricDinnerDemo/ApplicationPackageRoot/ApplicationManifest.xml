@@ -42,7 +42,15 @@
   </ServiceManifestImport>
   <ServiceManifestImport>
     <ServiceManifestRef ServiceManifestName="SvcFabricDinnerDemo.DinnerPlatformPkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
+     <ConfigOverrides>
+      <ConfigOverride Name="Config">
+        <Settings>
+          <Section Name="DinnerPlatformSection">
+            <Parameter Name="CertificateSubject" Value="[CertificateSubject]" />
+          </Section>
+        </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
     <EnvironmentOverrides CodePackageRef="code">
       <EnvironmentVariable Name="ASPNETCORE_ENVIRONMENT" Value="[SvcFabricDinnerDemo.DinnerPlatform_ASPNETCORE_ENVIRONMENT]" />
     </EnvironmentOverrides>
